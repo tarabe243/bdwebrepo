@@ -1,4 +1,4 @@
-![Alt text](https://www.google.com/imgres?q=cybersecurity%20images&imgurl=https%3A%2F%2Fcxotoday.com%2Fwp-content%2Fuploads%2F2023%2F05%2FCybersecurity.jpeg&imgrefurl=https%3A%2F%2Fcxotoday.com%2Fcxo-bytes%2F2024-cybersecurity-trends-5-essential-steps-to-protect-your-business%2F&docid=rsmBjqKn_i9yzM&tbnid=aKKX3tEIJfsKjM&vet=12ahUKEwjFvdinqcCIAxWmSTABHeeJLlcQM3oECBcQAA..i&w=1080&h=675&hcb=2&ved=2ahUKEwjFvdinqcCIAxWmSTABHeeJLlcQM3oECBcQAA
+![Alt text](https://www.google.com/imgres?q=cybersecurity%20images&imgurl=https%3A%2F%2Fcxotoday.com%2Fwp-content%2Fuploads%2F2023%2F05%2FCybersecurity.jpeg&imgrefurl=https%3A%2F%2Fcxotoday.com%2Fcxo-bytes%2F2024-cybersecurity-trends-5-essential-steps-to-protect-your-business%2F&docid=rsmBjqKn_i9yzM&tbnid=aKKX3tEIJfsKjM&vet=12ahUKEwjFvdinqcCIAxWmSTABHeeJLlcQM3oECBcQAA..i&w=1080&h=675&hcb=2&ved=2ahUKEwjFvdinqcCIAxWmSTABHeeJLlcQM3oECBcQAA)
 
 # Job Data Scraper
 
