@@ -1,4 +1,4 @@
-![cybersecurity scraping](https://stock.adobe.com/search/images?k=cybersecurity)
+![cybersecurity scraping](https://img.freepik.com/free-vector/cyber-security-concept_53876-90448.jpg?size=626&ext=jpg&ga=GA1.1.1472313518.1726245903&semt=ais_hybrid)
 
 
 
