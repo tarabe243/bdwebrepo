@@ -1,4 +1,4 @@
-![Alt text](https://www.forbes.com/councils/forbestechcouncil/2023/01/06/why-cybersecurity-should-be-top-of-mind-in-2023/)
+![cybersecurity scraping](https://www.forbes.com/councils/forbestechcouncil/2023/01/06/why-cybersecurity-should-be-top-of-mind-in-2023/)
 
 
 
