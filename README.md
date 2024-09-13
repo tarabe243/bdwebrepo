@@ -40,6 +40,64 @@ The script performs the following tasks:
    - It saves the job data in two formats: CSV and JSON.
 4. Error Handling: If the request fails, it prints an error message with the response status code and the error details.
 
+### Code Snippet
+
+Here's the main code of the script:
+
+```python
+import requests
+import csv
+import json
+
+# Set up the URL and API key
+url = "https://li-data-scraper.p.rapidapi.com/company-jobs"
+payload = {
+    "companyIds": [5383240, 2382910],  # Modify companyIds as necessary
+    "page": 1
+}
+headers = {
+    "x-rapidapi-key": "YOUR_RAPIDAPI_KEY_HERE",
+    "x-rapidapi-host": "li-data-scraper.p.rapidapi.com",
+    "Content-Type": "application/json"
+}
+
+# Make the POST request
+response = requests.post(url, json=payload, headers=headers)
+
+# Parse the response
+if response.status_code == 200:
+    job_data = response.json()['data']['items']
+    
+    # Save data to CSV
+    csv_file = "job_data.csv"
+    with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(["ID", "Title", "URL", "Company", "Location", "Type", "Post Date", "Benefits"])
+        for job in job_data:
+            writer.writerow([
+                job.get('id', ''),
+                job.get('title', ''),
+                job.get('url', ''),
+                job.get('company', {}).get('name', ''),
+                job.get('location', ''),
+                job.get('type', ''),
+                job.get('postAt', ''),
+                job.get('benefits', '')
+            ])
+    print(f"Data saved to {csv_file}")
+    
+    # Save data to JSON
+    json_file = "job_data.json"
+    with open(json_file, 'w', encoding='utf-8') as file:
+        json.dump(job_data, file, ensure_ascii=False, indent=4)
+    print(f"Data saved to {json_file}")
+
+else:
+    print(f"Failed to retrieve data: {response.status_code}, {response.text}")
+```
+
+Make sure to replace `"YOUR_RAPIDAPI_KEY_HERE"` with your actual RapidAPI key.
+
 ### CSV Output
 
 - The CSV file includes the following fields: ID, Title, URL, Company, Location, Type, Post Date, and Benefits.
@@ -79,56 +137,18 @@ Failed to retrieve data: [Status Code], [Error Message]
 - Currently, the script only retrieves the first page of job data. Consider adding pagination to loop through all available pages of results.
 - You can modify the payload to increment the page value and make multiple API calls until all jobs are retrieved.
 
-Example:
-
-```python
-for page in range(1, total_pages + 1):
-    payload["page"] = page
-    # Repeat the API request logic
-```
-
 ### Rate Limiting and Throttling:
 
 - Be cautious of API rate limits imposed by RapidAPI. You might want to implement a delay between requests to avoid hitting the rate limit, especially when handling pagination.
-
-Example:
-
-```python
-import time
-time.sleep(1)  # 1 second delay between requests
-```
 
 ### Enhanced Error Handling:
 
 - Consider handling different types of errors (e.g., network issues, API key errors) separately to provide more descriptive error messages.
 - Retry logic could be useful in case of temporary failures like network timeouts.
 
-Example:
-
-```python
-try:
-    response = requests.post(url, json=payload, headers=headers)
-    response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
-except requests.exceptions.Timeout:
-    print("Request timed out. Please try again later.")
-except requests.exceptions.RequestException as e:
-    print(f"Error during request: {e}")
-```
-
 ### Parameterize Inputs:
 
 - Allow the user to pass companyIds, API key, and other parameters via command-line arguments or environment variables to make the script more flexible.
-
-Example using argparse:
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(description="Job Scraper Script")
-parser.add_argument('--company-ids', nargs='+', help='List of Company IDs', required=True)
-parser.add_argument('--api-key', help='Your RapidAPI Key', required=True)
-args = parser.parse_args()
-```
 
 ### Data Validation:
 
@@ -137,15 +157,6 @@ args = parser.parse_args()
 ### Logging:
 
 - Add logging to track the script's execution and make debugging easier. You can log the status of each API request and data processing step.
-
-Example:
-
-```python
-import logging
-
-logging.basicConfig(level=logging.INFO)
-logging.info("Script started...")
-```
 
 ## Contributing
 
