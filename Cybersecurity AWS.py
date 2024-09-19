@@ -10,7 +10,7 @@ payload = {
     "page": 1
 }
 headers = {
-    "x-rapidapi-key": "245a0ba893mshf624aad12713292p16050bjsn9403d0ec437d",
+    "x-rapidapi-key": 
     "x-rapidapi-host": "li-data-scraper.p.rapidapi.com",
     "Content-Type": "application/json"
 }
